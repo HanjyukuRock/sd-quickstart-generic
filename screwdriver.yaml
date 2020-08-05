@@ -10,8 +10,6 @@ shared:
   #
   # (Source: https://hub.docker.com/r/library/buildpack-deps/)
   image: buildpack-deps
-  steps:
-    - set-variable: SAMPLE_VAR=`meta get build.jobName`
 # Job definition block
 # "main" is a default job that all pipelines have
 jobs:
@@ -32,6 +30,7 @@ jobs:
       # The "step_name" is a convenient label to reference it by. The
       # "command_to_run" is the single command that is executed during this
       # step. Environment variables will be passed between steps, within
+      - set-variable: SAMPLE_VAR=`meta get build.jobName`
       # the same job (as shown below).
       - use-variable: echo $SAMPLE_VAR
       - export: export GREETING="Hello, world!"
