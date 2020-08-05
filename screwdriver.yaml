@@ -10,7 +10,8 @@ shared:
   #
   # (Source: https://hub.docker.com/r/library/buildpack-deps/)
   image: buildpack-deps
-  - set-variable: SAMPLE_VAR=`meta get build.jobName`
+  steps:
+    - set-variable: SAMPLE_VAR=`meta get build.jobName`
 # Job definition block
 # "main" is a default job that all pipelines have
 jobs:
