@@ -32,6 +32,8 @@ jobs:
       # "command_to_run" is the single command that is executed during this
       # step. Environment variables will be passed between steps, within
       # the same job (as shown below).
+      - set-variable: SAMPLE_VAR=`meta get sample`
+      - use-variable: echo $SAMPLE_VAR
       - export: export GREETING="Hello, world!"
       - hello: echo $GREETING
       # Metadata is a structured key/value storage of relevant information about a build. 
